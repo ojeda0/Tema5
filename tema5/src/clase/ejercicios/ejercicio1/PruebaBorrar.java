@@ -8,14 +8,26 @@ public class PruebaBorrar {
 
 	}
 	
-	public void verificarRequisitosVideojuego(String sistema, int ram, String grafica) {
-	    boolean esSistemaCompatible = sistema.toUpperCase().contains("WINDOWS 11");
-	    boolean tieneSuficienteMemoria = ram >= 16;
-	    boolean tieneGraficaPotente = grafica.startsWith("RTX");
+	public void registrarNuevoUsuarioSistema(String correo, String clave) {
+	    comprobarCredenciales(correo, clave);
+	    almacenarRegistroEnBaseDatos(correo);
+	    notificarBienvenida(correo);
+	}
 
-	    if (esSistemaCompatible && tieneSuficienteMemoria && tieneGraficaPotente) {
-	        System.out.println("Puedes jugar en Ultra.");
+	private void comprobarCredenciales(String correo, String clave) {
+	    if(!correo.contains("@") || clave.length() < 8) {
+	        throw new IllegalArgumentException("Datos inválidos");
 	    }
+	}
+
+	private void almacenarRegistroEnBaseDatos(String correo) {
+	    System.out.println("Conectando a DB...");
+	    System.out.println("Insertando registro: " + correo);
+	}
+
+	private void notificarBienvenida(String correo) {
+	    System.out.println("Abriendo servidor SMTP...");
+	    System.out.println("Enviando correo a " + correo);
 	}
 	
 }
