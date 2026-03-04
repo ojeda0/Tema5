@@ -1,6 +1,6 @@
 package clase.ejercicios.ejercicioPadel.personas;
 
-public abstract class Persona {
+public abstract class Persona implements Comparable<Persona> {
 
 	//ATRIBUTOS
 	private String nombre;
@@ -68,5 +68,20 @@ public abstract class Persona {
 	}
 	
 	public abstract void saludar();
+
+	@Override
+	public int compareTo(Persona o) {
+
+		int result = this.nombre.compareTo(o.nombre);
+		
+		if(result == 0) {
+			
+			result = this.dni.compareTo(o.dni);
+			
+		}
+		
+		return result;
+		
+	}
 	
 }
