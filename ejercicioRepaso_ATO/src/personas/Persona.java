@@ -37,7 +37,7 @@ public abstract class Persona {
 
 	public void setDni(String dni) {
 		
-		if(this.dni.length() != 9) {
+		if(dni.length() != 9) {
 			
 			throw new IllegalArgumentException("ERROR. El DNI debe contener exactamente 9 caracteres.");
 			
