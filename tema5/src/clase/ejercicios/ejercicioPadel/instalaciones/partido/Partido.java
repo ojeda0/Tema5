@@ -22,8 +22,7 @@ public class Partido {
 	private Empleado responsable;
 	
 	//CONSTRUCTOR
-	public Partido(Pista pista, int numJugadores, List<Jugador> jugadores, LocalDateTime firmaEmpleado,
-			LocalDateTime firmaJugadores, Empleado responsable) {
+	public Partido(Pista pista, int numJugadores) {
 		this.codigo = Partido.contador++;
 		this.pista = pista;
 		this.setNumJugadores(numJugadores);

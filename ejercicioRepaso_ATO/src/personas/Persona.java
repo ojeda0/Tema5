@@ -1,4 +1,4 @@
-package ejercicioRepaso_ATO.personas;
+package personas;
 
 public abstract class Persona {
 
@@ -11,7 +11,7 @@ public abstract class Persona {
 	public Persona(String nombre, String apellidos, String dni) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.dni = dni;
+		this.setDni(dni);
 	}
 
 	//GETTERS Y SETTERS
@@ -36,6 +36,13 @@ public abstract class Persona {
 	}
 
 	public void setDni(String dni) {
+		
+		if(this.dni.length() != 9) {
+			
+			throw new IllegalArgumentException("ERROR. El DNI debe contener exactamente 9 caracteres.");
+			
+		}
+		
 		this.dni = dni;
 	}
 	
@@ -49,9 +56,7 @@ public abstract class Persona {
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		return this.nombre.equals(other.nombre) &&
-				this.apellidos.equals(other.apellidos) &&
-				this.dni.equals(other.dni);
+		return this.dni.equals(other.dni);
 	}
 
 	@Override
